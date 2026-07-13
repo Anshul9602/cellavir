@@ -6,7 +6,7 @@ $faqs = cv_faqs();
 <!-- FAQ Hero -->
 <section
     class="cv-faq-hero"
-    style="--cv-faq-hero-bg: url('<?= esc(pp_img('cellaviebanner.png')) ?>'); --cv-faq-hero-bg-mob: url('<?= esc(pp_img('homemobile.png')) ?>');"
+    style="--cv-faq-hero-bg: url('<?= esc(pp_img('faqbanner.png')) ?>'); --cv-faq-hero-bg-mob: url('<?= esc(pp_img('faqbanner.png')) ?>');"
 >
     <div class="cv-faq-hero__bg"></div>
     <div class="cv-faq-hero__overlay"></div>
@@ -45,17 +45,24 @@ $faqs = cv_faqs();
 </section>
 
 <!-- Still Have Questions CTA -->
-<section class="cv-faq-cta">
-    <div class="cv-faq-cta__bg" style="background-image:url('<?= esc(pp_img('dicover.png')) ?>')"></div>
-    <div class="cv-faq-cta__overlay"></div>
-    <div class="cv-faq-cta__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-        <div class="cv-faq-cta__icon">
-            <?= cv_icon('leaf', 'cv-lucide--cta-leaf') ?>
+<section class="cv-faq-cta-section protocol-section">
+    <div class="cv-faq-cta-section__inner">
+        <div class="cv-faq-cta">
+            <div class="cv-faq-cta__bg" style="background-image:url('<?= esc(pp_img('dicover.png')) ?>')"></div>
+            <div class="cv-faq-cta__overlay"></div>
+            <div class="cv-faq-cta__inner">
+                <div class="cv-faq-cta__icon" aria-hidden="true">
+                    <?= cv_icon('leaf', 'cv-lucide--cta-leaf') ?>
+                </div>
+                <div class="cv-faq-cta__copy">
+                    <h2 class="cv-faq-cta__title">Still have questions?</h2>
+                    <p class="cv-faq-cta__text">Our team is here to help you on your wellness journey.</p>
+                </div>
+                <a href="<?= site_url('contact') ?>" class="cv-faq-cta__btn">
+                    Contact Us
+                    <?= cv_icon('arrow-right', 'cv-lucide--cta-arrow') ?>
+                </a>
+            </div>
         </div>
-        <p class="cv-faq-cta__text">Still have questions? Our team is here to help you on your wellness journey.</p>
-        <a href="<?= site_url('contact') ?>" class="cv-faq-cta__btn">
-            Contact Us
-            <?= cv_icon('arrow-right', 'cv-lucide--cta-arrow') ?>
-        </a>
     </div>
 </section>
