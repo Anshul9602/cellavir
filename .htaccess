@@ -1,0 +1,12 @@
+# Scrap on Wheels — project root (/demo/ on live server)
+# Upload this file to the same folder as app/, public/, system/
+
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Route requests into public/ (hide public from URL)
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+</IfModule>

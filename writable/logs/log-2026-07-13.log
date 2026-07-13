@@ -1,0 +1,48 @@
+CRITICAL - 2026-07-13 08:43:13 --> ErrorException: Undefined variable $products
+[Method: GET, Route: /]
+in APPPATH\Views\portal\home.php on line 170.
+ 1 APPPATH\Views\portal\home.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $products', 'C:\\xampp\\htdocs\\cellavei\\app\\Views\\portal\\home.php', 170)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\cellavei\\app\\Views\\portal\\home.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('portal/home', [], true)
+ 5 APPPATH\Controllers\Portal.php(10): view('portal/home', [...])
+ 6 APPPATH\Controllers\Portal.php(16): App\Controllers\Portal->render('home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Portal->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Portal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\cellavei\\public\\index.php')
+CRITICAL - 2026-07-13 08:43:27 --> ErrorException: Undefined variable $products
+[Method: GET, Route: /]
+in APPPATH\Views\portal\home.php on line 170.
+ 1 APPPATH\Views\portal\home.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $products', 'C:\\xampp\\htdocs\\cellavei\\app\\Views\\portal\\home.php', 170)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\cellavei\\app\\Views\\portal\\home.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('portal/home', [], true)
+ 5 APPPATH\Controllers\Portal.php(10): view('portal/home', [...])
+ 6 APPPATH\Controllers\Portal.php(16): App\Controllers\Portal->render('home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Portal->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Portal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\cellavei\\public\\index.php')
+CRITICAL - 2026-07-13 08:43:31 --> ErrorException: Undefined variable $products
+[Method: GET, Route: /]
+in APPPATH\Views\portal\home.php on line 170.
+ 1 APPPATH\Views\portal\home.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $products', 'C:\\xampp\\htdocs\\cellavei\\app\\Views\\portal\\home.php', 170)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\cellavei\\app\\Views\\portal\\home.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1169): CodeIgniter\View\View->render('portal/home', [], true)
+ 5 APPPATH\Controllers\Portal.php(10): view('portal/home', [...])
+ 6 APPPATH\Controllers\Portal.php(16): App\Controllers\Portal->render('home', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Portal->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Portal))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\cellavei\\public\\index.php')
