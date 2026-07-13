@@ -125,12 +125,12 @@ function cv_home_pillars(): array
 function cv_home_protocols(): array
 {
     return [
-        ['title' => 'Recovery', 'text' => 'Protocols designed to support tissue repair, inflammation balance, and restorative recovery.', 'image' => 'https://protocolpeptides.net/wp-content/uploads/2026/02/02_collection_1.webp', 'url' => 'shop'],
-        ['title' => 'Cellular Health', 'text' => 'Peptide protocols that help cells communicate, repair, and regenerate more effectively.', 'image' => 'https://protocolpeptides.net/wp-content/uploads/2026/02/04_collection_1.webp', 'url' => 'shop'],
-        ['title' => 'Performance', 'text' => 'Support metabolic efficiency, energy, and biological performance at the cellular level.', 'image' => 'https://protocolpeptides.net/wp-content/uploads/2026/02/02_collection_1.webp', 'url' => 'shop'],
-        ['title' => 'Weight Management', 'text' => 'Clinically informed protocols supporting metabolic health and body composition goals.', 'image' => 'https://protocolpeptides.net/wp-content/uploads/2026/02/03_collection_1.webp', 'url' => 'shop'],
-        ['title' => 'Immune Support', 'text' => 'Protocols focused on immune balance, resilience, and proactive cellular wellness.', 'image' => 'https://protocolpeptides.net/wp-content/uploads/2026/02/01_collection_3.webp', 'url' => 'shop'],
-        ['title' => 'Anti-Aging', 'text' => 'Healthy aging protocols engineered to support longevity, recovery, and cellular vitality.', 'image' => 'https://protocolpeptides.net/wp-content/uploads/2026/02/04_collection_1.webp', 'url' => 'shop'],
+        ['title' => 'Recovery', 'text' => 'Protocols designed to support tissue repair, inflammation balance, and restorative recovery.', 'image' => pp_img('recovery.png'), 'url' => 'shop'],
+        ['title' => 'Cellular Health', 'text' => 'Peptide protocols that help cells communicate, repair, and regenerate more effectively.', 'image' => pp_img('health.png'), 'url' => 'shop'],
+        ['title' => 'Performance', 'text' => 'Support metabolic efficiency, energy, and biological performance at the cellular level.', 'image' => pp_img('performance.png'), 'url' => 'shop'],
+        ['title' => 'Cellular Repair', 'text' => 'Protocols focused on cellular repair, regeneration, and the body\'s natural recovery pathways.', 'image' => pp_img('refair.png'), 'url' => 'shop'],
+        ['title' => 'Immune Support', 'text' => 'Protocols focused on immune balance, resilience, and proactive cellular wellness.', 'image' => pp_img('immune.png'), 'url' => 'shop'],
+        ['title' => 'Vitality', 'text' => 'Healthy aging protocols engineered to support longevity, recovery, and cellular vitality.', 'image' => pp_img('vitality.png'), 'url' => 'shop'],
     ];
 }
 

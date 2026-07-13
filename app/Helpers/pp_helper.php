@@ -29,22 +29,36 @@ function pp_page_header(string $title): string
 
 function pp_products(): array
 {
-    return [
-        ['name' => 'CJC-1295 with DAC – 5mg | Research Use Only', 'slug' => 'cjc-1295-dac-5mg'],
-        ['name' => 'Ipamorelin – 10mg | Research Use Only', 'slug' => 'ipamorelin-10mg'],
-        ['name' => 'Tesamorelin – 10mg | Research Use Only', 'slug' => 'tesamorelin-10mg'],
-        ['name' => 'GHK-Cu – 60mg | Research Use Only', 'slug' => 'ghk-cu-60mg'],
-    ];
+    $products = [];
+    foreach (cv_home_protocols() as $protocol) {
+        $products[] = [
+            'name' => $protocol['title'] . ' | Research Use Only',
+            'slug' => strtolower(str_replace([' ', '&'], ['-', 'and'], $protocol['title'])),
+            'image' => $protocol['image'],
+        ];
+    }
+
+    return $products;
 }
 
 function pp_product_card(array $product): string
 {
     $name = esc($product['name']);
+    $imageHtml = '';
+
+    if (!empty($product['image'])) {
+        $image = esc($product['image']);
+        $imageHtml = <<<HTML
+            <img src="{$image}" alt="{$name}" loading="lazy" width="1000" height="1000">
+        HTML;
+    } else {
+        $imageHtml = '<div class="product-card__placeholder">Research Compound</div>';
+    }
 
     return <<<HTML
     <article class="product-card product-card--info">
         <div class="product-card__image-wrap">
-            <div class="product-card__placeholder">Research Compound</div>
+            {$imageHtml}
         </div>
         <div class="product-card__body">
             <h3 class="product-card__title">{$name}</h3>

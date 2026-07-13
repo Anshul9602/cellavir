@@ -1,5 +1,5 @@
-# Scrap on Wheels — project root (/demo/ on live server)
-# Upload this file to the same folder as app/, public/, system/
+# CellaVie — project root
+# Point your domain document root here (folder containing app/, public/, system/)
 
 DirectoryIndex index.php
 
