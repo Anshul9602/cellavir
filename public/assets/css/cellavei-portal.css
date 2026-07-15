@@ -1777,8 +1777,10 @@ body.protocol-about-page .protocol-page-header {
 .cv-about-cta-banner__inner {
     position: relative;
     z-index: 1;
-    padding: clamp(40px, 6vw, 64px) clamp(24px, 5vw, 56px);
     max-width: 720px;
+    margin-inline: auto;
+    padding: clamp(40px, 6vw, 64px) clamp(24px, 5vw, 56px);
+    text-align: center;
 }
 
 .cv-about-cta-banner__inner h2 {
@@ -1803,6 +1805,7 @@ body.protocol-about-page .protocol-page-header {
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 24px;
+    justify-content: center;
 }
 
 .cv-btn-gold-outline,
@@ -2389,8 +2392,10 @@ body.protocol-about-page .protocol-page-header {
 .cv-science-cta__inner {
     position: relative;
     z-index: 1;
+    max-width: 720px;
+    margin-inline: auto;
     padding: clamp(40px, 6vw, 64px) clamp(24px, 5vw, 56px);
-    max-width: 560px;
+    text-align: center;
 }
 
 .cv-science-cta__inner h2 {
@@ -2414,6 +2419,7 @@ body.protocol-about-page .protocol-page-header {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: center;
 }
 
 body.protocol-science-page .protocol-btn.protocol-btn--secondary {
