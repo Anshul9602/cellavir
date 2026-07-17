@@ -38,14 +38,20 @@ $enquiries = [
         'active' => false,
     ],
 ];
+$contactVideo = pp_video('contactus.MP4');
 ?>
 
 <!-- Contact Hero -->
-<section
-    class="cv-contact-hero"
-    style="--cv-contact-hero-bg: url('<?= esc(pp_img('abouthomebg.png')) ?>'); --cv-contact-hero-bg-mob: url('<?= esc(pp_img('abouthomebgmob.png')) ?>');"
->
-    <div class="cv-contact-hero__bg"></div>
+<section class="cv-contact-hero">
+    <div class="cv-contact-hero__media">
+        <?php if ($contactVideo): ?>
+        <video autoplay muted loop playsinline poster="<?= esc(pp_img('abouthomebg.png')) ?>">
+            <source src="<?= esc($contactVideo) ?>" type="video/mp4">
+        </video>
+        <?php else: ?>
+        <div class="cv-contact-hero__bg" style="--cv-contact-hero-bg: url('<?= esc(pp_img('abouthomebg.png')) ?>'); --cv-contact-hero-bg-mob: url('<?= esc(pp_img('abouthomebgmob.png')) ?>');"></div>
+        <?php endif; ?>
+    </div>
     <div class="cv-contact-hero__overlay"></div>
     <div class="cv-contact-hero__inner">
         <div class="cv-contact-hero__content protocol-animate protocol-animate--slide-up protocol-animate--delay-100">

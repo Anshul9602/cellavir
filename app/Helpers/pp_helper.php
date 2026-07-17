@@ -20,19 +20,31 @@ function pp_logo(string $variant = 'dark'): string
 
 /**
  * Video URL if file exists in public/video/ or public/image/.
+ * Case-insensitive match so Linux hosts work when filename casing differs (e.g. .MP4 vs .mp4).
  */
 function pp_video(string $filename): ?string
 {
-    $paths = [
-        ROOTPATH . 'public' . DIRECTORY_SEPARATOR . 'video' . DIRECTORY_SEPARATOR . $filename,
-        ROOTPATH . 'public' . DIRECTORY_SEPARATOR . 'image' . DIRECTORY_SEPARATOR . $filename,
-    ];
+    $folders = ['video', 'image'];
 
-    foreach ($paths as $path) {
-        if (is_file($path)) {
-            $folder = str_contains($path, DIRECTORY_SEPARATOR . 'video' . DIRECTORY_SEPARATOR) ? 'video' : 'image';
+    foreach ($folders as $folder) {
+        $dir = ROOTPATH . 'public' . DIRECTORY_SEPARATOR . $folder;
+        if (!is_dir($dir)) {
+            continue;
+        }
 
+        $direct = $dir . DIRECTORY_SEPARATOR . $filename;
+        if (is_file($direct)) {
             return base_url($folder . '/' . rawurlencode($filename));
+        }
+
+        $needle = strtolower($filename);
+        foreach (scandir($dir) ?: [] as $entry) {
+            if ($entry === '.' || $entry === '..') {
+                continue;
+            }
+            if (strtolower($entry) === $needle && is_file($dir . DIRECTORY_SEPARATOR . $entry)) {
+                return base_url($folder . '/' . rawurlencode($entry));
+            }
         }
     }
 
@@ -67,7 +79,7 @@ function pp_glance_card(array $item, string $extraClass = ''): string
 {
     $title = esc(strtoupper($item['title'] ?? $item['name'] ?? ''));
     $url = esc(site_url($item['url'] ?? 'shop'));
-    $bg = esc(pp_img($item['card_bg'] ?? 'productcardbg (1).png'));
+    $bg = esc(pp_img($item['card_bg'] ?? '-141.jpg.jpeg'));
     $product = esc(pp_img($item['product_image'] ?? 'product.png'));
     $class = esc(trim('cv-glance-card ' . $extraClass));
 

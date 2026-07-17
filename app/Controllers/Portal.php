@@ -43,7 +43,6 @@ class Portal extends BaseController
         return $this->render('faq', [
             'pageTitle' => 'FAQs — CellaVie',
             'activeNav' => 'faq',
-            'loadFaqJs' => true,
             'bodyClass' => 'protocol-faq-page',
         ]);
     }

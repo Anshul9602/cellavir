@@ -5,7 +5,7 @@ $timeline = cv_home_timeline();
 $protocols = cv_home_protocols();
 $promises = cv_home_promises();
 $testimonials = cv_home_testimonials();
-$homeVideo = pp_video('videohoome.mp4');
+$homeVideo = pp_video('homevideo.MP4');
 ?>
 
 <!-- Hero Banner -->
@@ -131,21 +131,6 @@ $homeVideo = pp_video('videohoome.mp4');
                 </footer>
             </blockquote>
             <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- Secondary CTA -->
-<section class="cv-home-cta">
-    <div class="cv-home-cta__bg" style="background-image:url('<?= esc(pp_img('dicover.png')) ?>')"></div>
-    <div class="cv-home-cta__overlay"></div>
-    <div class="cv-home-cta__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-        <img src="<?= pp_logo('light') ?>" alt="CellaVie" class="cv-home-cta__logo">
-        <h2>Learn. Discover. Evolve.</h2>
-        <p><?= esc($brand['statement']) ?></p>
-        <div class="cv-home-cta__actions">
-            <a href="<?= site_url('science') ?>" class="cv-btn-gold-solid">Resource Center</a>
-            <a href="<?= site_url('faq') ?>" class="cv-btn-gold-outline">Read the FAQ</a>
         </div>
     </div>
 </section>

@@ -2,51 +2,59 @@
     </main>
 
     <footer class="cv-footer">
-        <div class="cv-footer__main">
-            <div class="cv-footer__brand">
-                <a href="<?= site_url('/') ?>" class="cv-footer__logo-link">
-                    <img src="<?= pp_logo('light') ?>" alt="<?= esc(cv_brand()['short_name']) ?>" class="cv-footer__logo">
-                </a>
-                <p class="cv-footer__tagline"><?= esc(cv_brand()['statement']) ?></p>
+        <div class="cv-footer__top">
+            <div class="cv-footer__cta">
+                <h2 class="cv-footer__cta-title">Curious but not quite ready to dive in?</h2>
+                <p class="cv-footer__cta-lead">We’d love to connect.</p>
+                <p class="cv-footer__cta-text">Email our team at <a href="mailto:<?= esc(cv_brand()['contact_email']) ?>"><?= esc(cv_brand()['contact_email']) ?></a> to explore how CellaVie works — and whether it’s the right fit for you.</p>
+                <a href="mailto:<?= esc(cv_brand()['contact_email']) ?>" class="cv-footer__cta-btn">Send Email</a>
             </div>
-            <div class="cv-footer__columns">
-                <div class="cv-footer__col">
-                    <h3 class="cv-footer__heading">Explore</h3>
-                    <ul class="cv-footer__list">
-                        <li><a href="<?= site_url('about') ?>">About Us</a></li>
-                        <li><a href="<?= site_url('science') ?>">Science</a></li>
-                        <li><a href="<?= site_url('shop') ?>">Protocols</a></li>
-                        <li><a href="<?= site_url('faq') ?>">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="cv-footer__col">
-                    <h3 class="cv-footer__heading">Support</h3>
-                    <ul class="cv-footer__list">
-                        <li><a href="<?= site_url('privacy-policy') ?>">Privacy Policy</a></li>
-                        <li><a href="<?= site_url('terms-of-service') ?>">Terms &amp; Conditions</a></li>
-                        <li><a href="<?= site_url('contact') ?>">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="cv-footer__col cv-footer__col--connect">
-                    <h3 class="cv-footer__heading">Newsletter</h3>
-                    <p><?= esc(cv_brand()['newsletter']) ?></p>
-                    <form class="cv-footer__newsletter" action="#" method="post">
-                        <input type="email" name="email" placeholder="Email" required aria-label="Email">
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <div class="cv-footer__social">
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><?= cv_social_icon('instagram') ?></a>
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><?= cv_social_icon('facebook') ?></a>
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><?= cv_social_icon('linkedin') ?></a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><?= cv_social_icon('youtube') ?></a>
-                        <a href="mailto:hello@cellavie.com" aria-label="Email"><?= cv_social_icon('mail') ?></a>
+
+            <div class="cv-footer__right">
+                <div class="cv-footer__columns">
+                    <div class="cv-footer__col">
+                        <h3 class="cv-footer__heading">Explore</h3>
+                        <ul class="cv-footer__list">
+                            <li><a href="<?= site_url('shop') ?>">Protocols</a></li>
+                            <li><a href="<?= site_url('science') ?>">Science</a></li>
+                            <li><a href="<?= site_url('faq') ?>">FAQs</a></li>
+                        </ul>
                     </div>
+                    <div class="cv-footer__col">
+                        <h3 class="cv-footer__heading">Support</h3>
+                        <ul class="cv-footer__list">
+                            <li><a href="<?= site_url('privacy-policy') ?>">Privacy Policy</a></li>
+                            <li><a href="<?= site_url('terms-of-service') ?>">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= site_url('shipping-policy') ?>">Shipping Policy</a></li>
+                            <li><a href="<?= site_url('contact') ?>">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="cv-footer__col">
+                        <h3 class="cv-footer__heading">Company</h3>
+                        <ul class="cv-footer__list">
+                            <li><a href="<?= site_url('contact') ?>">Contact</a></li>
+                            <li><a href="<?= site_url('about') ?>">About Us</a></li>
+                            <li><a href="<?= site_url('science') ?>">Our Science</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="cv-footer__social">
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><?= cv_social_icon('linkedin') ?></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><?= cv_social_icon('instagram') ?></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><?= cv_social_icon('facebook') ?></a>
+                </div>
+
+                <div class="cv-footer__legal">
+                    <p>© <?= date('Y') ?> <?= esc(cv_brand()['short_name']) ?>. All rights reserved.</p>
+                    <p class="cv-footer__disclaimer"><?= esc(cv_brand()['short_name']) ?> is not affiliated with any government agency. While we collaborate with medical professionals and advisors, our products and information are provided for educational and research purposes only and are not intended as a substitute for professional medical advice, diagnosis, or treatment.</p>
                 </div>
             </div>
         </div>
-        <div class="cv-footer__bottom">
-            <p>© <?= date('Y') ?> <a href="<?= site_url('/') ?>"><?= esc(cv_brand()['short_name']) ?></a> · <?= esc(cv_brand()['tagline']) ?></p>
-            <p class="cv-footer__disclaimer">CellaVie products and information are provided for educational and research purposes only and are not intended as a substitute for professional medical advice, diagnosis, or treatment.</p>
+
+        <div class="cv-footer__brand-banner">
+            <p class="cv-footer__brand-banner-name"><?= esc(cv_brand()['short_name']) ?></p>
+            <p class="cv-footer__brand-banner-line">Learn. Discover. Evolve.</p>
         </div>
     </footer>
 </div>

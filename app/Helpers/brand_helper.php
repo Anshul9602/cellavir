@@ -139,12 +139,12 @@ function cv_home_pillars(): array
 function cv_home_protocols(): array
 {
     $backgrounds = [
-        'productcardbg (1).png',
-        'productcardbg (2).png',
-        'productcardbg (3).png',
-        'productcardbg (4).png',
-        'productcardbg (5).png',
-        'productcardbg (6).png',
+        '-141.jpg.jpeg',
+        '-142.jpg.jpeg',
+        'Image 35.jpeg',
+        'Image 36.jpeg',
+        'Image 37.jpeg',
+        'Understanding The Differences Between Lotion And Moisturizer.jpg.jpeg',
     ];
 
     $items = [

@@ -1,7 +1,7 @@
 <?php
 $brand = cv_brand();
 $values = cv_values();
-$aboutVideo = pp_video('about-hero.mp4');
+$aboutVideo = pp_video('aboutusvideo.mp4');
 $philosophyItems = [
     ['title' => 'Science-Backed', 'text' => 'Every protocol is rooted in current research, clinical evidence, and precision wellness.', 'icon' => 'microscope'],
     ['title' => 'Clinically Informed', 'text' => 'Our approach reflects the rigor and transparency expected in evidence-informed care.', 'icon' => 'badge-check'],
@@ -86,7 +86,7 @@ $philosophyItems = [
 <!-- Mission & Vision -->
 <section class="cv-about-mv-cards">
     <div class="cv-about-mv-cards__grid">
-        <article class="cv-about-mv-card protocol-animate protocol-animate--slide-up protocol-animate--delay-200" style="--cv-mv-bg: url('<?= esc(pp_img('midbanner.png')) ?>')">
+        <article class="cv-about-mv-card protocol-animate protocol-animate--slide-up protocol-animate--delay-200" style="--cv-mv-bg: url('<?= esc(pp_img('mission.jpeg')) ?>')">
             <div class="cv-about-mv-card__overlay"></div>
             <div class="cv-about-mv-card__content">
                 <div class="cv-about-mv-icon">
@@ -96,7 +96,7 @@ $philosophyItems = [
                 <p><?= esc($brand['mission']) ?></p>
             </div>
         </article>
-        <article class="cv-about-mv-card protocol-animate protocol-animate--slide-up protocol-animate--delay-300" style="--cv-mv-bg: url('<?= esc(pp_img('dicover.png')) ?>')">
+        <article class="cv-about-mv-card protocol-animate protocol-animate--slide-up protocol-animate--delay-300" style="--cv-mv-bg: url('<?= esc(pp_img('vision.jpeg')) ?>')">
             <div class="cv-about-mv-card__overlay"></div>
             <div class="cv-about-mv-card__content">
                 <div class="cv-about-mv-icon">
@@ -145,22 +145,6 @@ $philosophyItems = [
             </div>
             <h3>Scientific Advisory</h3>
             <p>Scientific accuracy is at the heart of everything we do. CellaVie works alongside experienced scientific advisors who guide protocol development, research summaries, and our evidence-informed approach to longevity science.</p>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Banner -->
-<section class="cv-about-cta-banner">
-    <div class="cv-about-cta-banner__bg" style="background-image:url('<?= esc(pp_img('midbanner.png')) ?>')"></div>
-    <div class="cv-about-cta-banner__overlay"></div>
-    <div class="cv-about-cta-banner__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-        <img src="<?= pp_logo('light') ?>" alt="CellaVie" class="cv-about-cta-banner__logo">
-        <h2><?= esc($brand['tagline']) ?></h2>
-        <p><?= esc($brand['statement']) ?></p>
-        <p>Individual experiences vary based on protocol, biology, and consistency. Consult with a qualified professional to determine the most appropriate approach for you.</p>
-        <div class="cv-about-cta-banner__actions">
-            <a href="<?= site_url('shop') ?>" class="cv-btn-gold-outline">Explore Protocols</a>
-            <a href="<?= site_url('science') ?>" class="cv-btn-gold-solid">Read the Science</a>
         </div>
     </div>
 </section>

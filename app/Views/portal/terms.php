@@ -1,6 +1,30 @@
-<?php $brand = cv_brand(); ?>
+<?php
+$brand = cv_brand();
+$termsVideo = pp_video('terms.MP4');
+?>
 
-<?= pp_page_header('Terms of Service') ?>
+<!-- Terms Hero -->
+<section class="cv-policy-hero">
+    <div class="cv-policy-hero__media">
+        <?php if ($termsVideo): ?>
+        <video autoplay muted loop playsinline>
+            <source src="<?= esc($termsVideo) ?>" type="video/mp4">
+        </video>
+        <?php endif; ?>
+    </div>
+    <div class="cv-policy-hero__overlay"></div>
+    <div class="cv-policy-hero__inner">
+        <div class="cv-policy-hero__content protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
+            <h1 class="cv-policy-hero__title">Terms of Service</h1>
+            <span class="cv-policy-hero__line" aria-hidden="true">
+                <span class="cv-policy-hero__line-bar"></span>
+                <?= cv_icon('leaf', 'cv-lucide--hero-leaf') ?>
+                <span class="cv-policy-hero__line-bar"></span>
+            </span>
+            <p class="cv-policy-hero__text"><?= esc($brand['statement']) ?></p>
+        </div>
+    </div>
+</section>
 
 <section class="protocol-section protocol-page-content cv-section-green" style="padding-top:36px;padding-bottom:80px;">
     <div class="protocol-page-content__inner">

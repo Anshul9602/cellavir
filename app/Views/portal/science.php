@@ -3,7 +3,7 @@ $brand = cv_brand();
 $features = cv_science_features();
 $timeline = cv_science_timeline();
 $sections = cv_science_sections();
-$scienceVideo = pp_video('videohoome.mp4');
+$scienceVideo = pp_video('science.MP4');
 ?>
 
 <!-- Science Hero Video -->
@@ -21,6 +21,15 @@ $scienceVideo = pp_video('videohoome.mp4');
         <?php endif; ?>
     </div>
     <div class="cv-video-hero__overlay"></div>
+    <div class="cv-video-hero__content protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
+        <h1 class="cv-video-hero__title">Science</h1>
+        <span class="cv-video-hero__line" aria-hidden="true">
+            <span class="cv-video-hero__line-bar"></span>
+            <?= cv_icon('leaf', 'cv-lucide--hero-leaf') ?>
+            <span class="cv-video-hero__line-bar"></span>
+        </span>
+        <p class="cv-video-hero__text"><?= esc($brand['statement']) ?></p>
+    </div>
 </section>
 
 <!-- Intro -->
@@ -86,21 +95,6 @@ $scienceVideo = pp_video('videohoome.mp4');
                 </div>
             </details>
             <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Banner -->
-<section class="cv-science-cta">
-    <div class="cv-science-cta__bg" style="background-image:url('<?= esc(pp_img('midbanner.png')) ?>')"></div>
-    <div class="cv-science-cta__overlay"></div>
-    <div class="cv-science-cta__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-        <img src="<?= pp_logo('light') ?>" alt="CellaVie" class="cv-science-cta__logo">
-        <h2><?= esc($brand['tagline']) ?></h2>
-        <p><?= esc($brand['statement']) ?></p>
-        <div class="cv-science-cta__actions">
-            <a href="<?= site_url('shop') ?>" class="protocol-btn">Explore Protocols</a>
-            <a href="<?= site_url('faq') ?>" class="protocol-btn protocol-btn--secondary">Read the FAQ</a>
         </div>
     </div>
 </section>
