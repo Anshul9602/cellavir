@@ -3,18 +3,28 @@ $brand = cv_brand();
 $features = cv_science_features();
 $timeline = cv_science_timeline();
 $sections = cv_science_sections();
+$scienceVideo = pp_video('videohoome.mp4');
 ?>
 
-<!-- Science Hero Banner -->
-<section class="cv-science-hero">
-    <picture>
-        <source media="(max-width: 900px)" srcset="<?= esc(pp_img('abouthomebgmob.png')) ?>">
-        <img src="<?= pp_img('abouthomebg.png') ?>" alt="CellaVie — The Science of Living Better">
-    </picture>
+<!-- Science Hero Video -->
+<section class="cv-video-hero cv-video-hero--science">
+    <div class="cv-video-hero__media">
+        <?php if ($scienceVideo): ?>
+        <video autoplay muted loop playsinline poster="<?= esc(pp_img('cellaviebanner.png')) ?>">
+            <source src="<?= esc($scienceVideo) ?>" type="video/mp4">
+        </video>
+        <?php else: ?>
+        <picture>
+            <source media="(max-width: 900px)" srcset="<?= esc(pp_img('homemobile.png')) ?>">
+            <img src="<?= pp_img('cellaviebanner.png') ?>" alt="CellaVie Science">
+        </picture>
+        <?php endif; ?>
+    </div>
+    <div class="cv-video-hero__overlay"></div>
 </section>
 
 <!-- Intro -->
-<section class="cv-science-intro protocol-section">
+<section class="cv-science-intro cv-section-green protocol-section">
     <div class="cv-science-intro__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
         <p class="cv-science-intro__label">Science</p>
         <h1 class="cv-science-intro__title">The Science of Living Better</h1>
@@ -23,7 +33,7 @@ $sections = cv_science_sections();
 </section>
 
 <!-- Feature Pillars -->
-<section class="cv-science-features protocol-section">
+<section class="cv-science-features cv-section-green protocol-section">
     <div class="cv-science-features__grid">
         <?php foreach ($features as $i => $feature): ?>
         <article class="cv-science-feature protocol-animate protocol-animate--slide-up protocol-animate--delay-<?= min(100 + ($i * 80), 500) ?>">
@@ -38,7 +48,7 @@ $sections = cv_science_sections();
 </section>
 
 <!-- Science Timeline -->
-<section class="cv-science-timeline-section protocol-section">
+<section class="cv-science-timeline-section cv-section-green protocol-section">
     <div class="cv-science-timeline-box protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
         <h2 class="cv-science-timeline-box__title">The Science Timeline</h2>
         <div class="cv-science-timeline">
@@ -61,7 +71,7 @@ $sections = cv_science_sections();
 </section>
 
 <!-- The Science Explained -->
-<section class="cv-science-explained protocol-section">
+<section class="cv-science-explained cv-section-green protocol-section">
     <div class="cv-science-explained__inner">
         <h2 class="cv-science-explained__title protocol-animate protocol-animate--slide-up protocol-animate--delay-100">The Science Explained</h2>
         <div class="protocol-faq__accordion cv-science-accordion protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
@@ -69,9 +79,7 @@ $sections = cv_science_sections();
             <details class="protocol-faq__item">
                 <summary class="protocol-faq__question">
                     <span class="protocol-faq__question-text"><?= esc($section['title']) ?></span>
-                    <span class="protocol-faq__icon">
-                        <?= cv_icon('chevron-down', 'cv-lucide--chevron') ?>
-                    </span>
+                    <?= cv_faq_toggle_icon() ?>
                 </summary>
                 <div class="protocol-faq__answer rte">
                     <p><?= esc($section['text']) ?></p>
@@ -87,6 +95,7 @@ $sections = cv_science_sections();
     <div class="cv-science-cta__bg" style="background-image:url('<?= esc(pp_img('midbanner.png')) ?>')"></div>
     <div class="cv-science-cta__overlay"></div>
     <div class="cv-science-cta__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
+        <img src="<?= pp_logo('light') ?>" alt="CellaVie" class="cv-science-cta__logo">
         <h2><?= esc($brand['tagline']) ?></h2>
         <p><?= esc($brand['statement']) ?></p>
         <div class="cv-science-cta__actions">

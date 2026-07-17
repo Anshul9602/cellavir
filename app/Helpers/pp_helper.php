@@ -8,6 +8,37 @@ function pp_img(string $filename): string
     return base_url('image/' . rawurlencode($filename));
 }
 
+/**
+ * Brand logo — dark = black logo on light backgrounds, light = white logo on dark backgrounds.
+ */
+function pp_logo(string $variant = 'dark'): string
+{
+    $file = $variant === 'light' ? 'logo_white.PNG' : 'logo_black.png';
+
+    return pp_img($file);
+}
+
+/**
+ * Video URL if file exists in public/video/ or public/image/.
+ */
+function pp_video(string $filename): ?string
+{
+    $paths = [
+        ROOTPATH . 'public' . DIRECTORY_SEPARATOR . 'video' . DIRECTORY_SEPARATOR . $filename,
+        ROOTPATH . 'public' . DIRECTORY_SEPARATOR . 'image' . DIRECTORY_SEPARATOR . $filename,
+    ];
+
+    foreach ($paths as $path) {
+        if (is_file($path)) {
+            $folder = str_contains($path, DIRECTORY_SEPARATOR . 'video' . DIRECTORY_SEPARATOR) ? 'video' : 'image';
+
+            return base_url($folder . '/' . rawurlencode($filename));
+        }
+    }
+
+    return null;
+}
+
 function pp_page_header(string $title): string
 {
     $home = esc(site_url('/'));
@@ -29,42 +60,47 @@ function pp_page_header(string $title): string
 
 function pp_products(): array
 {
-    $products = [];
-    foreach (cv_home_protocols() as $protocol) {
-        $products[] = [
-            'name' => $protocol['title'] . ' | Research Use Only',
-            'slug' => strtolower(str_replace([' ', '&'], ['-', 'and'], $protocol['title'])),
-            'image' => $protocol['image'],
-        ];
+    return cv_home_protocols();
+}
+
+function pp_glance_card(array $item, string $extraClass = ''): string
+{
+    $title = esc(strtoupper($item['title'] ?? $item['name'] ?? ''));
+    $url = esc(site_url($item['url'] ?? 'shop'));
+    $bg = esc(pp_img($item['card_bg'] ?? 'productcardbg (1).png'));
+    $product = esc(pp_img($item['product_image'] ?? 'product.png'));
+    $class = esc(trim('cv-glance-card ' . $extraClass));
+
+    $tagsHtml = '';
+    $tags = $item['tags'] ?? [];
+    if ($tags !== []) {
+        $tagsHtml = '<div class="cv-glance-card__tags">';
+        foreach ($tags as $i => $tag) {
+            if ($i > 0) {
+                $tagsHtml .= '<span class="cv-glance-card__tag-line" aria-hidden="true"></span>';
+            }
+            $tagsHtml .= '<span class="cv-glance-card__tag">' . esc($tag) . '</span>';
+        }
+        $tagsHtml .= '</div>';
     }
 
-    return $products;
+    return <<<HTML
+    <a href="{$url}" class="{$class}">
+        <div class="cv-glance-card__bg" style="background-image:url('{$bg}')"></div>
+        <div class="cv-glance-card__shade"></div>
+        <div class="cv-glance-card__content">
+            <h3 class="cv-glance-card__title">{$title}</h3>
+            {$tagsHtml}
+            <p class="cv-glance-card__note">Research Use Only</p>
+        </div>
+        <img src="{$product}" alt="" class="cv-glance-card__product" loading="lazy" width="400" height="600">
+    </a>
+    HTML;
 }
 
 function pp_product_card(array $product): string
 {
-    $name = esc($product['name']);
-    $imageHtml = '';
-
-    if (!empty($product['image'])) {
-        $image = esc($product['image']);
-        $imageHtml = <<<HTML
-            <img src="{$image}" alt="{$name}" loading="lazy" width="1000" height="1000">
-        HTML;
-    } else {
-        $imageHtml = '<div class="product-card__placeholder">Research Compound</div>';
-    }
-
-    return <<<HTML
-    <article class="product-card product-card--info">
-        <div class="product-card__image-wrap">
-            {$imageHtml}
-        </div>
-        <div class="product-card__body">
-            <h3 class="product-card__title">{$name}</h3>
-        </div>
-    </article>
-    HTML;
+    return pp_glance_card($product, 'product-card product-card--info');
 }
 
 function pp_product_section(string $heading, array $products, string $animDelay = '600'): string
@@ -77,11 +113,11 @@ function pp_product_section(string $heading, array $products, string $animDelay 
     $headingEsc = esc($heading);
 
     return <<<HTML
-    <section class="section-resource-list">
-        <div class="section-resource-list__header protocol-animate protocol-animate--slide-up protocol-animate--delay-{$animDelay}">
-            <h2>{$headingEsc}</h2>
+    <section class="section-resource-list cv-glance-section">
+        <div class="cv-glance-section__head protocol-animate protocol-animate--slide-up protocol-animate--delay-{$animDelay}">
+            <h2 class="cv-glance-section__title">{$headingEsc}</h2>
         </div>
-        <div class="product-grid protocol-animate protocol-animate--slide-right protocol-animate--delay-400">
+        <div class="cv-glance-grid protocol-animate protocol-animate--slide-up protocol-animate--delay-400">
             {$cards}
         </div>
     </section>

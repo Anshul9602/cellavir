@@ -1,8 +1,8 @@
 /* Protocol Peptides theme styles — Manrope body, Cormorant headings */
 
 :root {
-  --protocol-primary: #1B3A2F;
-  --protocol-alt: #0F231B;
+  --protocol-primary: #001D00;
+  --protocol-alt: #001000;
   --protocol-border: rgba(200, 163, 77, 0.35);
   --protocol-divider: #E6C26A;
   --protocol-container: 1222px;
@@ -145,8 +145,8 @@ body.protocol-peptides-theme .header-announcements span {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(27, 58, 47, 0.55) 0%,
-    rgba(15, 35, 27, 0.45) 100%
+    rgba(0, 29, 0, 0.55) 0%,
+    rgba(0, 16, 0, 0.45) 100%
   );
   pointer-events: none;
 }
@@ -1015,7 +1015,7 @@ body.protocol-peptides-theme .protocol-footer-disclaimer {
 
 .protocol-contact-form__input:focus {
   outline: none;
-  border-color: #1B3A2F;
+  border-color: #001D00;
 }
 
 .protocol-contact-form__input::placeholder {
@@ -1401,7 +1401,7 @@ body.protocol-peptides-theme.protocol-contact-page .protocol-page-header__breadc
   transition: transform 0.25s ease;
 }
 
-.protocol-faq__item[open] .protocol-faq__icon svg {
+.protocol-faq__item[open] .protocol-faq__icon:not(.protocol-faq__icon--toggle) svg {
   transform: rotate(180deg);
 }
 

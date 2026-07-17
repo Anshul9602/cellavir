@@ -1,33 +1,41 @@
 <?php
 $brand = cv_brand();
 $values = cv_values();
+$aboutVideo = pp_video('about-hero.mp4');
 $philosophyItems = [
     ['title' => 'Science-Backed', 'text' => 'Every protocol is rooted in current research, clinical evidence, and precision wellness.', 'icon' => 'microscope'],
     ['title' => 'Clinically Informed', 'text' => 'Our approach reflects the rigor and transparency expected in evidence-informed care.', 'icon' => 'badge-check'],
-    ['title' => 'Precision Wellness', 'text' => 'Protocols are designed with intention — tailored to repair, optimize, and elevate your baseline.', 'icon' => 'crosshair'],
+    ['title' => 'Precision Wellness', 'text' => 'Protocols are designed with intention, tailored to repair, optimize, and elevate your baseline.', 'icon' => 'crosshair'],
 ];
 ?>
 
 <!-- About Hero -->
-<section
-    class="cv-about-hero"
-    style="--cv-about-hero-bg: url('<?= esc(pp_img('abouthomebg.png')) ?>'); --cv-about-hero-bg-mob: url('<?= esc(pp_img('abouthomebgmob.png')) ?>');"
->
-    <div class="cv-about-hero__bg"></div>
-    <div class="cv-about-hero__overlay"></div>
-    <div class="cv-about-hero__inner">
-        <div class="cv-about-hero__content protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
-            <h1 class="cv-about-hero__title">About Us</h1>
-            <span class="cv-about-hero__line" aria-hidden="true"></span>
-            <p class="cv-about-hero__subtitle">Science. Precision. Longevity. Naturally You.</p>
-            <p class="cv-about-hero__text"><?= esc($brand['name']) ?> is a luxury wellness brand built on science, precision, and longevity. We design peptide protocols that support healthier aging from the cellular level — helping your biology communicate more effectively so you can repair, optimize, and elevate your baseline.</p>
+<section class="cv-about-hero-split cv-section-green">
+    <div class="cv-about-hero-split__inner">
+        <div class="cv-about-hero-split__content protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
+            <p class="cv-about-hero-split__label">About CellaVie</p>
+            <h1 class="cv-about-hero-split__title">Why "CellaVie"</h1>
+            <p>Our name reflects our philosophy: lasting health begins at the cellular level and is achieved through personalized protocols, not one-size-fits-all solutions.</p>
+            <p>Guided by experienced practitioners, every recommendation is informed by data, refined over time, and tailored to your unique biology.</p>
+            <p>From comprehensive testing to ongoing protocol optimization, every step is intentional, transparent, and focused on helping you perform at your best.</p>
         </div>
-        
+        <div class="cv-about-hero-split__media protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
+            <?php if ($aboutVideo): ?>
+            <video autoplay muted loop playsinline poster="<?= esc(pp_img('abouthomebg.png')) ?>">
+                <source src="<?= esc($aboutVideo) ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <picture>
+                <source media="(max-width: 900px)" srcset="<?= esc(pp_img('abouthomebgmob.png')) ?>">
+                <img src="<?= pp_img('abouthomebg.png') ?>" alt="CellaVie About">
+            </picture>
+            <?php endif; ?>
+        </div>
     </div>
 </section>
 
 <!-- Who We Are + Why CellaVie Exists -->
-<section class="cv-about-split protocol-section">
+<section class="cv-about-split cv-section-green protocol-section">
     <div class="cv-about-split__inner">
         <div class="cv-about-split__col protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
             <div class="cv-about-section-label">
@@ -46,14 +54,14 @@ $philosophyItems = [
                 <?= cv_icon('leaf', 'cv-lucide--section cv-lucide--gold') ?>
                 <h2>Why CellaVie Exists</h2>
             </div>
-            <p>Healthy aging begins within. CellaVie was founded to redefine how people experience longevity — making precision peptide wellness accessible through clinically informed science.</p>
+            <p>Healthy aging begins within. CellaVie was founded to redefine how people experience longevity, making precision peptide wellness accessible through clinically informed science.</p>
             <p>We believe small signals can create extraordinary results. By combining science-backed protocols with editorial design and transparent communication, we help individuals take a proactive approach to recovery, performance, and long-term wellness.</p>
         </div>
     </div>
 </section>
 
 <!-- Our Philosophy -->
-<section class="cv-about-philosophy-section protocol-section">
+<section class="cv-about-philosophy-section cv-section-green protocol-section">
     <div class="cv-about-philosophy-section__inner">
         <div class="cv-about-section-label cv-about-section-label--center protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
             <?= cv_icon('leaf', 'cv-lucide--section cv-lucide--gold') ?>
@@ -71,33 +79,38 @@ $philosophyItems = [
             </div>
             <?php endforeach; ?>
         </div>
-        <p class="cv-about-philosophy-footer protocol-animate protocol-animate--slide-up protocol-animate--delay-500">We focus on cellular repair, regeneration, and healthy aging — not quick fixes. Wellness at the cellular level is the foundation of living better.</p>
+        <p class="cv-about-philosophy-footer protocol-animate protocol-animate--slide-up protocol-animate--delay-500">We focus on cellular repair, regeneration, and healthy aging, not quick fixes. Wellness at the cellular level is the foundation of living better.</p>
     </div>
 </section>
 
 <!-- Mission & Vision -->
-<section class="cv-about-mv-dark">
-    <div class="cv-about-mv-dark__inner">
-        <div class="cv-about-mv-dark__col protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-            <div class="cv-about-mv-icon">
-                <?= cv_icon('target', 'cv-lucide--mv') ?>
+<section class="cv-about-mv-cards">
+    <div class="cv-about-mv-cards__grid">
+        <article class="cv-about-mv-card protocol-animate protocol-animate--slide-up protocol-animate--delay-200" style="--cv-mv-bg: url('<?= esc(pp_img('midbanner.png')) ?>')">
+            <div class="cv-about-mv-card__overlay"></div>
+            <div class="cv-about-mv-card__content">
+                <div class="cv-about-mv-icon">
+                    <?= cv_icon('target', 'cv-lucide--mv') ?>
+                </div>
+                <h3>Our Mission</h3>
+                <p><?= esc($brand['mission']) ?></p>
             </div>
-            <h3>Our Mission</h3>
-            <p><?= esc($brand['mission']) ?></p>
-        </div>
-        <div class="cv-about-mv-dark__divider" aria-hidden="true"></div>
-        <div class="cv-about-mv-dark__col protocol-animate protocol-animate--slide-up protocol-animate--delay-300">
-            <div class="cv-about-mv-icon">
-                <?= cv_icon('eye', 'cv-lucide--mv') ?>
+        </article>
+        <article class="cv-about-mv-card protocol-animate protocol-animate--slide-up protocol-animate--delay-300" style="--cv-mv-bg: url('<?= esc(pp_img('dicover.png')) ?>')">
+            <div class="cv-about-mv-card__overlay"></div>
+            <div class="cv-about-mv-card__content">
+                <div class="cv-about-mv-icon">
+                    <?= cv_icon('eye', 'cv-lucide--mv') ?>
+                </div>
+                <h3>Our Vision</h3>
+                <p><?= esc($brand['vision']) ?></p>
             </div>
-            <h3>Our Vision</h3>
-            <p><?= esc($brand['vision']) ?></p>
-        </div>
+        </article>
     </div>
 </section>
 
 <!-- Our Values -->
-<section class="cv-about-values-section protocol-section">
+<section class="cv-about-values-section cv-section-green protocol-section">
     <div class="cv-about-values-section__inner">
         <h2 class="cv-about-values-title protocol-animate protocol-animate--slide-up protocol-animate--delay-100">Our Values</h2>
         <div class="cv-about-values-list">
@@ -117,14 +130,14 @@ $philosophyItems = [
 </section>
 
 <!-- Leadership + Scientific Advisory -->
-<section class="cv-about-team-section protocol-section">
+<section class="cv-about-team-section cv-section-green protocol-section">
     <div class="cv-about-team-section__inner">
         <div class="cv-about-team-card protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
             <div class="cv-about-team-icon">
                 <?= cv_icon('briefcase', 'cv-lucide--team cv-lucide--gold') ?>
             </div>
             <h3>Leadership</h3>
-            <p>CellaVie's leadership team brings together expertise in wellness innovation, scientific advisory, and premium brand experience — building the world's most trusted premium peptide wellness company.</p>
+            <p>CellaVie's leadership team brings together expertise in wellness innovation, scientific advisory, and premium brand experience, building the world's most trusted premium peptide wellness company.</p>
         </div>
         <div class="cv-about-team-card protocol-animate protocol-animate--slide-up protocol-animate--delay-300">
             <div class="cv-about-team-icon">
@@ -141,6 +154,7 @@ $philosophyItems = [
     <div class="cv-about-cta-banner__bg" style="background-image:url('<?= esc(pp_img('midbanner.png')) ?>')"></div>
     <div class="cv-about-cta-banner__overlay"></div>
     <div class="cv-about-cta-banner__inner protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
+        <img src="<?= pp_logo('light') ?>" alt="CellaVie" class="cv-about-cta-banner__logo">
         <h2><?= esc($brand['tagline']) ?></h2>
         <p><?= esc($brand['statement']) ?></p>
         <p>Individual experiences vary based on protocol, biology, and consistency. Consult with a qualified professional to determine the most appropriate approach for you.</p>

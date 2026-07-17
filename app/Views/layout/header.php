@@ -6,7 +6,7 @@
     <title><?= esc($pageTitle ?? cv_brand()['tagline'] . ' — ' . cv_brand()['short_name']) ?></title>
     <meta name="description" content="<?= esc(cv_brand()['statement']) ?>">
     <meta name="keywords" content="<?= esc(cv_brand()['seo_keywords']) ?>">
-    <link rel="icon" href="<?= pp_img('logo.png') ?>" type="image/png">
+    <link rel="icon" href="<?= pp_logo('dark') ?>" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
     <header class="cv-header">
         <div class="cv-header__inner">
             <a href="<?= site_url('/') ?>" class="cv-header__logo logo-block">
-                <img src="<?= pp_img('logo.png') ?>" alt="CellaVie" class="logo-block__image">
+                <img src="<?= pp_logo('dark') ?>" alt="CellaVie" class="logo-block__image logo-block__image--dark">
             </a>
 
             <nav class="cv-header__nav" aria-label="Main">

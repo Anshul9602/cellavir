@@ -29,8 +29,9 @@
     summary.className = 'protocol-faq__question';
     summary.innerHTML =
       '<span class="protocol-faq__question-text"></span>' +
-      '<span class="protocol-faq__icon">' +
-      '<i data-lucide="chevron-down" class="cv-lucide cv-lucide--chevron" aria-hidden="true"></i>' +
+      '<span class="protocol-faq__icon protocol-faq__icon--toggle" aria-hidden="true">' +
+      '<i data-lucide="plus" class="cv-lucide cv-lucide--toggle cv-lucide--toggle-plus" aria-hidden="true"></i>' +
+      '<i data-lucide="minus" class="cv-lucide cv-lucide--toggle cv-lucide--toggle-minus" aria-hidden="true"></i>' +
       '</span>';
 
     summary.querySelector('.protocol-faq__question-text').textContent = question;

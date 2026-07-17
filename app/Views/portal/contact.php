@@ -1,4 +1,5 @@
 <?php
+$brand = cv_brand();
 $enquiries = [
     [
         'id' => 'clinic',
@@ -39,9 +40,27 @@ $enquiries = [
 ];
 ?>
 
-<?= pp_page_header('Contact') ?>
+<!-- Contact Hero -->
+<section
+    class="cv-contact-hero"
+    style="--cv-contact-hero-bg: url('<?= esc(pp_img('abouthomebg.png')) ?>'); --cv-contact-hero-bg-mob: url('<?= esc(pp_img('abouthomebgmob.png')) ?>');"
+>
+    <div class="cv-contact-hero__bg"></div>
+    <div class="cv-contact-hero__overlay"></div>
+    <div class="cv-contact-hero__inner">
+        <div class="cv-contact-hero__content protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
+            <h1 class="cv-contact-hero__title">Contact Us</h1>
+            <span class="cv-contact-hero__line" aria-hidden="true">
+                <span class="cv-contact-hero__line-bar"></span>
+                <?= cv_icon('leaf', 'cv-lucide--hero-leaf') ?>
+                <span class="cv-contact-hero__line-bar"></span>
+            </span>
+            <p class="cv-contact-hero__text"><?= esc($brand['statement']) ?></p>
+        </div>
+    </div>
+</section>
 
-<section class="protocol-section protocol-contact-page" style="padding-top:0;padding-bottom:80px;" data-protocol-contact>
+<section class="protocol-section protocol-contact-page cv-section-green cv-contact-section" data-protocol-contact>
     <div class="protocol-contact-page__inner">
         <div class="protocol-contact-page__intro protocol-animate protocol-animate--slide-up protocol-animate--delay-100">
             <h2 class="protocol-contact-page__heading">Get in Touch</h2>
@@ -54,8 +73,9 @@ $enquiries = [
         <div class="protocol-contact-page__layout">
             <!-- Contact Form -->
             <div class="protocol-contact-page__form-wrap protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-                <p class="protocol-contact-page__form-label">Send us a message</p>
                 <form class="protocol-contact-form protocol-contact-form--page" id="contact-form" action="#" method="post" novalidate>
+                    <p class="protocol-contact-page__form-label">Send us a message</p>
+
                     <div class="protocol-contact-form__success" id="contact-success" hidden tabindex="-1">
                         Thank you for your inquiry. Our team will respond within 1–2 business days.
                     </div>

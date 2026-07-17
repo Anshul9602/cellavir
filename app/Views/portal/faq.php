@@ -24,16 +24,14 @@ $faqs = cv_faqs();
 </section>
 
 <!-- FAQ Accordion -->
-<section class="cv-faq-section protocol-section">
+<section class="cv-faq-section cv-section-green protocol-section">
     <div class="cv-faq-section__inner">
         <div class="protocol-faq__accordion cv-faq-accordion">
             <?php foreach ($faqs as $i => $faq): ?>
             <details class="protocol-faq__item protocol-animate protocol-animate--slide-up protocol-animate--delay-<?= min(100 + ($i * 50), 500) ?>">
                 <summary class="protocol-faq__question">
                     <span class="protocol-faq__question-text"><?= esc($faq['q']) ?></span>
-                    <span class="protocol-faq__icon">
-                        <?= cv_icon('chevron-down', 'cv-lucide--chevron') ?>
-                    </span>
+                    <?= cv_faq_toggle_icon() ?>
                 </summary>
                 <div class="protocol-faq__answer rte">
                     <p><?= esc($faq['a']) ?></p>
@@ -45,7 +43,7 @@ $faqs = cv_faqs();
 </section>
 
 <!-- Still Have Questions CTA -->
-<section class="cv-faq-cta-section protocol-section">
+<section class="cv-faq-cta-section cv-section-green protocol-section">
     <div class="cv-faq-cta-section__inner">
         <div class="cv-faq-cta">
             <div class="cv-faq-cta__bg" style="background-image:url('<?= esc(pp_img('dicover.png')) ?>')"></div>

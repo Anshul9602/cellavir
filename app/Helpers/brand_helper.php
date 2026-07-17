@@ -11,6 +11,16 @@ function cv_icon(string $name, string $class = ''): string
     return '<i data-lucide="' . esc($name) . '" class="' . esc($classes) . '" aria-hidden="true"></i>';
 }
 
+function cv_faq_toggle_icon(string $class = ''): string
+{
+    $iconClass = trim('cv-lucide--toggle ' . $class);
+
+    return '<span class="protocol-faq__icon protocol-faq__icon--toggle" aria-hidden="true">'
+        . cv_icon('plus', $iconClass . ' cv-lucide--toggle-plus')
+        . cv_icon('minus', $iconClass . ' cv-lucide--toggle-minus')
+        . '</span>';
+}
+
 function cv_social_icon(string $name, string $class = ''): string
 {
     $icons = [
@@ -39,6 +49,8 @@ function cv_brand(): array
         'mission' => 'To redefine healthy aging through science-backed peptide protocols that support longevity, recovery, performance, and cellular wellness.',
         'vision' => "To become the world's most trusted premium peptide wellness company by making precision longevity accessible through clinically informed science.",
         'tagline' => 'Built on Science. Made for You.',
+        'hero_headline' => 'The Science of Peptides, Made Personal.',
+        'hero_subtext' => 'Research-driven peptide protocols and trusted guidance, developed with clinicians to help you make informed decisions.',
         'announcement' => 'Built on Science. Made for You. — CellaVie Premium Peptides',
         'newsletter' => 'Stay connected to the future of longevity.',
         'hero' => [
@@ -52,6 +64,8 @@ function cv_brand(): array
         'seo_keywords' => 'premium peptides, peptide therapy, longevity science, healthy aging, bioactive peptides, cellular health, precision wellness, regenerative wellness, wellness optimization, peptide research, science-backed wellness, collagen support, recovery protocols, metabolic health, longevity protocols',
         'personality' => ['Luxury', 'Editorial', 'Sophisticated', 'Clinical', 'Modern', 'Minimal', 'Natural', 'Confident'],
         'personality_note' => 'Never loud. Never salesy.',
+        'contact_email' => 'hello@cellavie.com',
+        'legal_updated' => 'July 17, 2026',
     ];
 }
 
@@ -124,14 +138,30 @@ function cv_home_pillars(): array
 
 function cv_home_protocols(): array
 {
-    return [
-        ['title' => 'Recovery', 'text' => 'Protocols designed to support tissue repair, inflammation balance, and restorative recovery.', 'image' => pp_img('recovery.png'), 'url' => 'shop'],
-        ['title' => 'Cellular Health', 'text' => 'Peptide protocols that help cells communicate, repair, and regenerate more effectively.', 'image' => pp_img('health.png'), 'url' => 'shop'],
-        ['title' => 'Performance', 'text' => 'Support metabolic efficiency, energy, and biological performance at the cellular level.', 'image' => pp_img('performance.png'), 'url' => 'shop'],
-        ['title' => 'Cellular Repair', 'text' => 'Protocols focused on cellular repair, regeneration, and the body\'s natural recovery pathways.', 'image' => pp_img('refair.png'), 'url' => 'shop'],
-        ['title' => 'Immune Support', 'text' => 'Protocols focused on immune balance, resilience, and proactive cellular wellness.', 'image' => pp_img('immune.png'), 'url' => 'shop'],
-        ['title' => 'Vitality', 'text' => 'Healthy aging protocols engineered to support longevity, recovery, and cellular vitality.', 'image' => pp_img('vitality.png'), 'url' => 'shop'],
+    $backgrounds = [
+        'productcardbg (1).png',
+        'productcardbg (2).png',
+        'productcardbg (3).png',
+        'productcardbg (4).png',
+        'productcardbg (5).png',
+        'productcardbg (6).png',
     ];
+
+    $items = [
+        ['title' => 'Recovery', 'tags' => ['Repair & Regeneration', 'Cellular Health'], 'url' => 'shop'],
+        ['title' => 'Cellular Health', 'tags' => ['Cellular Health', 'Longevity'], 'url' => 'shop'],
+        ['title' => 'Performance', 'tags' => ['Performance', 'Metabolic Health'], 'url' => 'shop'],
+        ['title' => 'Cellular Repair', 'tags' => ['Repair & Regeneration'], 'url' => 'shop'],
+        ['title' => 'Immune Support', 'tags' => ['Immune Balance', 'Cellular Wellness'], 'url' => 'shop'],
+        ['title' => 'Vitality', 'tags' => ['Longevity', 'Cellular Vitality'], 'url' => 'shop'],
+    ];
+
+    foreach ($items as $i => &$item) {
+        $item['card_bg'] = $backgrounds[$i] ?? $backgrounds[0];
+        $item['product_image'] = 'product.png';
+    }
+
+    return $items;
 }
 
 function cv_home_promises(): array
@@ -146,10 +176,10 @@ function cv_home_promises(): array
 function cv_home_testimonials(): array
 {
     return [
-        ['quote' => 'CellaVie protocols reflect the precision and transparency we expect in evidence-informed wellness.', 'name' => 'Dr. James Carter, MD', 'title' => 'Longevity Specialist'],
-        ['quote' => 'The editorial approach and protocol design feel refined — not sales-driven. Clear, professional science communication.', 'name' => 'Dr. Sarah Mitchell', 'title' => 'Integrative Medicine'],
-        ['quote' => 'Small signals, extraordinary results. A proactive approach to healthy aging at the cellular level.', 'name' => 'James R. Chen', 'title' => 'Wellness Practitioner'],
-        ['quote' => 'Finally a premium peptide brand that leads with science, clarity, and long-term wellness — not hype.', 'name' => 'Elena Kowalski', 'title' => 'CellaVie Client'],
+        ['quote' => 'Within a few weeks my recovery felt noticeably smoother. The guidance was clear and the protocol felt thoughtful, not rushed.', 'name' => 'K.L.', 'title' => 'Recovery Protocol'],
+        ['quote' => 'I wanted something science-led without the hype. CellaVie explained the why behind each step and that made all the difference for me.', 'name' => 'M.C.', 'title' => 'Performance Protocol'],
+        ['quote' => 'The process felt personal from day one. My questions were answered properly and I finally understood how the protocol fit my goals.', 'name' => 'C.Y.', 'title' => 'Vitality Protocol'],
+        ['quote' => 'Clean branding, honest communication, and a team that actually listens. That is rare in this space.', 'name' => 'Elena K.', 'title' => 'CellaVie Client'],
     ];
 }
 
