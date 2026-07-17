@@ -7,7 +7,13 @@
                 <h2 class="cv-footer__cta-title">Curious but not quite ready to dive in?</h2>
                 <p class="cv-footer__cta-lead">We’d love to connect.</p>
                 <p class="cv-footer__cta-text">Email our team at <a href="mailto:<?= esc(cv_brand()['contact_email']) ?>"><?= esc(cv_brand()['contact_email']) ?></a> to explore how CellaVie works — and whether it’s the right fit for you.</p>
-                <a href="mailto:<?= esc(cv_brand()['contact_email']) ?>" class="cv-footer__cta-btn">Send Email</a>
+                <form class="cv-footer__newsletter" action="#" method="post">
+                    <label class="cv-footer__newsletter-label" for="cv-footer-newsletter-email">Newsletter</label>
+                    <div class="cv-footer__newsletter-row">
+                        <input id="cv-footer-newsletter-email" type="email" name="email" placeholder="Enter your email" required aria-label="Email">
+                        <button type="submit">Subscribe</button>
+                    </div>
+                </form>
             </div>
 
             <div class="cv-footer__right">

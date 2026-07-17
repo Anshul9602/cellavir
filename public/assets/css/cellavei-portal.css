@@ -3777,6 +3777,66 @@ body.protocol-contact-page .protocol-page-header {
     text-underline-offset: 3px;
 }
 
+.cv-footer__newsletter {
+    margin: 0 0 20px;
+    max-width: 360px;
+}
+
+.cv-footer__newsletter-label {
+    display: block;
+    margin: 0 0 10px;
+    font-family: var(--protocol-font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.cv-footer__newsletter-row {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.cv-footer__newsletter-row input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    padding: 12px 18px;
+    font-family: var(--protocol-font);
+    font-size: 14px;
+    color: var(--cv-white);
+    background: transparent;
+}
+
+.cv-footer__newsletter-row input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.cv-footer__newsletter-row button {
+    border: 0;
+    padding: 12px 20px;
+    background: #F4F1EA;
+    color: #111;
+    font-family: var(--protocol-font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.25s ease;
+}
+
+.cv-footer__newsletter-row button:hover {
+    background: var(--cv-gold);
+}
+
 .cv-footer__cta-btn {
     display: inline-flex;
     align-items: center;
