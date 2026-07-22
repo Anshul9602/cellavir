@@ -27,8 +27,7 @@ $homeVideo = pp_video('homevideo.MP4');
         <h1 class="cv-video-hero__title"><?= esc($brand['hero_headline']) ?></h1>
         <p class="cv-video-hero__text"><?= esc($brand['hero_subtext']) ?></p>
         <div class="cv-video-hero__actions">
-            <a href="<?= site_url('shop') ?>" class="cv-btn-gold-solid">Explore Protocols</a>
-            <a href="<?= site_url('science') ?>" class="cv-btn-gold-outline cv-btn-gold-outline--light">Learn the Science</a>
+            <a href="<?= site_url('contact') ?>#contact-form" class="cv-btn-gold-solid">To Book a Consultancy</a>
         </div>
     </div>
 </section>
@@ -39,8 +38,7 @@ $homeVideo = pp_video('homevideo.MP4');
         <h2 class="cv-home-intro__title cv-home-intro__title--single"><?= esc($brand['tagline']) ?></h2>
         <p class="cv-home-intro__text"><?= esc($brand['statement']) ?></p>
         <div class="cv-home-intro__actions">
-            <a href="<?= site_url('shop') ?>" class="cv-btn-gold-solid">Explore Protocols</a>
-            <a href="<?= site_url('science') ?>" class="cv-btn-gold-outline cv-btn-gold-outline--light">Learn the Science</a>
+            <a href="<?= site_url('contact') ?>#contact-form" class="cv-btn-gold-solid">To Book a Consultancy</a>
         </div>
     </div>
     <div class="cv-home-pillars">
@@ -99,8 +97,7 @@ $homeVideo = pp_video('homevideo.MP4');
     <div class="cv-home-choose__inner">
         <h2 class="cv-home-section-title cv-home-section-title--light protocol-animate protocol-animate--slide-up protocol-animate--delay-100">Why Choose CellaVie</h2>
         <div class="cv-home-choose__actions protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-            <a href="<?= site_url('science') ?>" class="cv-btn-gold-solid">Our Science</a>
-            <a href="<?= site_url('shop') ?>" class="cv-btn-gold-outline cv-btn-gold-outline--light">View Products</a>
+            <a href="<?= site_url('contact') ?>#contact-form" class="cv-btn-gold-solid">To Book a Consultancy</a>
         </div>
         <h3 class="cv-home-choose__subtitle protocol-animate protocol-animate--slide-up protocol-animate--delay-250">Our Promise</h3>
         <div class="cv-home-promises">

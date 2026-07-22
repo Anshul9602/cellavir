@@ -14,6 +14,8 @@ $routes->get('about', 'Portal::about');
 $routes->get('science', 'Portal::science');
 $routes->get('faq', 'Portal::faq');
 $routes->get('contact', 'Portal::contact');
+$routes->post('contact/submit', 'Portal::contactSubmit');
+$routes->post('newsletter', 'Portal::newsletter');
 $routes->get('privacy-policy', 'Portal::privacy');
 $routes->get('terms-of-service', 'Portal::terms');
 $routes->get('shipping-policy', 'Portal::shipping');

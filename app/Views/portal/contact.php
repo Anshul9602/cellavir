@@ -79,40 +79,48 @@ $contactVideo = pp_video('contactus.MP4');
         <div class="protocol-contact-page__layout">
             <!-- Contact Form -->
             <div class="protocol-contact-page__form-wrap protocol-animate protocol-animate--slide-up protocol-animate--delay-200">
-                <form class="protocol-contact-form protocol-contact-form--page" id="contact-form" action="#" method="post" novalidate>
-                    <p class="protocol-contact-page__form-label">Send us a message</p>
+                <form class="protocol-contact-form protocol-contact-form--page" id="contact-form" action="<?= site_url('contact/submit') ?>" method="post" novalidate>
+                    <p class="protocol-contact-page__form-label">Book a Consultancy</p>
 
-                    <div class="protocol-contact-form__success" id="contact-success" hidden tabindex="-1">
-                        Thank you for your inquiry. Our team will respond within 1–2 business days.
+                    <?php if (session()->getFlashdata('contact_success')): ?>
+                    <div class="protocol-contact-form__success" id="contact-success" tabindex="-1">
+                        <?= esc(session()->getFlashdata('contact_success')) ?>
                     </div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('contact_error')): ?>
+                    <div class="protocol-contact-form__error" id="contact-error" tabindex="-1">
+                        <?= esc(session()->getFlashdata('contact_error')) ?>
+                    </div>
+                    <?php endif; ?>
 
                     <div class="protocol-contact-form__field cv-contact-field protocol-animate protocol-animate--slide-up protocol-animate--delay-300">
                         <label class="protocol-contact-form__label" for="contact-name">Full Name</label>
-                        <input type="text" id="contact-name" class="protocol-contact-form__input" name="name" autocomplete="name" placeholder="Full Name" required>
+                        <input type="text" id="contact-name" class="protocol-contact-form__input" name="name" autocomplete="name" placeholder="Full Name" value="<?= esc(old('name')) ?>" required>
                     </div>
 
                     <div class="protocol-contact-form__field cv-contact-field protocol-animate protocol-animate--slide-up protocol-animate--delay-400">
                         <label class="protocol-contact-form__label" for="contact-email">Email Address</label>
-                        <input type="email" id="contact-email" class="protocol-contact-form__input" name="email" autocomplete="email" placeholder="Email Address" required>
+                        <input type="email" id="contact-email" class="protocol-contact-form__input" name="email" autocomplete="email" placeholder="Email Address" value="<?= esc(old('email')) ?>" required>
                     </div>
 
                     <div class="protocol-contact-form__field cv-contact-field protocol-animate protocol-animate--slide-up protocol-animate--delay-500">
                         <label class="protocol-contact-form__label" for="contact-organization">Organization / Institution (Optional)</label>
-                        <input type="text" id="contact-organization" class="protocol-contact-form__input" name="organization" autocomplete="organization" placeholder="Organization / Institution (Optional)">
+                        <input type="text" id="contact-organization" class="protocol-contact-form__input" name="organization" autocomplete="organization" placeholder="Organization / Institution (Optional)" value="<?= esc(old('organization')) ?>">
                     </div>
 
                     <div class="protocol-contact-form__field cv-contact-field protocol-animate protocol-animate--slide-up protocol-animate--delay-500">
                         <label class="protocol-contact-form__label" for="contact-subject">Subject</label>
-                        <input type="text" id="contact-subject" class="protocol-contact-form__input protocol-contact-form__subject" name="subject" placeholder="Subject" value="Clinic Enquiry" data-protocol-contact-subject>
+                        <input type="text" id="contact-subject" class="protocol-contact-form__input protocol-contact-form__subject" name="subject" placeholder="Subject" value="<?= esc(old('subject', 'Book a Consultancy')) ?>" data-protocol-contact-subject>
                     </div>
 
                     <div class="protocol-contact-form__field cv-contact-field protocol-animate protocol-animate--slide-up protocol-animate--delay-600">
                         <label class="protocol-contact-form__label" for="contact-message">Message</label>
-                        <textarea id="contact-message" class="protocol-contact-form__input protocol-contact-form__textarea" name="message" rows="8" placeholder="Message" required></textarea>
+                        <textarea id="contact-message" class="protocol-contact-form__input protocol-contact-form__textarea" name="message" rows="8" placeholder="Message" required><?= esc(old('message')) ?></textarea>
                     </div>
 
                     <button type="submit" class="protocol-btn protocol-contact-form__submit protocol-animate protocol-animate--slide-up protocol-animate--delay-600">
-                        Submit Inquiry
+                        To Book a Consultancy
                     </button>
                 </form>
             </div>

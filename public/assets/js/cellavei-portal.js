@@ -32,25 +32,22 @@
     }
 
     var contactForm = document.getElementById('contact-form');
-    var contactSuccess = document.getElementById('contact-success');
-
     if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
-                return;
-            }
-            if (contactSuccess) {
-                contactSuccess.hidden = false;
-                contactSuccess.focus();
-                contactForm.querySelectorAll('.cv-contact-field').forEach(function (field) {
-                    field.style.display = 'none';
-                });
-                var submitBtn = contactForm.querySelector('.protocol-contact-form__submit');
-                if (submitBtn) submitBtn.style.display = 'none';
-            }
-        });
+        var contactSuccess = document.getElementById('contact-success');
+        var contactError = document.getElementById('contact-error');
+        if (contactSuccess) {
+            contactSuccess.focus();
+            contactForm.querySelectorAll('.cv-contact-field').forEach(function (field) {
+                field.style.display = 'none';
+            });
+            var submitBtn = contactForm.querySelector('.protocol-contact-form__submit');
+            if (submitBtn) submitBtn.style.display = 'none';
+            var formLabel = contactForm.querySelector('.protocol-contact-page__form-label');
+            if (formLabel) formLabel.style.display = 'none';
+        }
+        if (contactError) {
+            contactError.focus();
+        }
     }
 
     document.querySelectorAll('.protocol-faq__accordion').forEach(function (accordion) {

@@ -52,7 +52,7 @@ $faqVideo = pp_video('faq.MP4');
         <article class="cv-faq-doc__block cv-faq-doc__block--connect">
             <h3 class="cv-faq-doc__heading">Still have questions?</h3>
             <p>We’d love to connect. Reach out to our team to explore how CellaVie protocols work — and whether they’re the right fit for you.</p>
-            <a href="<?= site_url('contact') ?>" class="cv-btn-gold-solid">Contact Us</a>
+            <a href="<?= site_url('contact') ?>#contact-form" class="cv-btn-gold-solid">To Book a Consultancy</a>
         </article>
     </div>
 </section>
