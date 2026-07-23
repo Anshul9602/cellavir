@@ -8,6 +8,11 @@ function pp_img(string $filename): string
     return base_url('image/' . rawurlencode($filename));
 }
 
+function pp_product_img(string $filename): string
+{
+    return base_url('image/product/' . rawurlencode($filename));
+}
+
 /**
  * Brand logo — dark = black logo on light backgrounds, light = white logo on dark backgrounds.
  */
@@ -80,7 +85,7 @@ function pp_glance_card(array $item, string $extraClass = ''): string
     $title = esc(strtoupper($item['title'] ?? $item['name'] ?? ''));
     $url = esc(site_url($item['url'] ?? 'shop'));
     $bg = esc(pp_img($item['card_bg'] ?? '-141.jpg.jpeg'));
-    $product = esc(pp_img($item['product_image'] ?? 'product.png'));
+    $product = esc(pp_product_img($item['product_image'] ?? 'ghk-ch.png'));
     $class = esc(trim('cv-glance-card ' . $extraClass));
 
     $tagsHtml = '';

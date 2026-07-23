@@ -145,20 +145,63 @@ function cv_home_protocols(): array
         'Image 36.jpeg',
         'Image 37.jpeg',
         'Understanding The Differences Between Lotion And Moisturizer.jpg.jpeg',
+        '-141.jpg.jpeg',
     ];
 
     $items = [
-        ['title' => 'Recovery', 'tags' => ['Repair & Regeneration', 'Cellular Health'], 'url' => 'shop'],
-        ['title' => 'Cellular Health', 'tags' => ['Cellular Health', 'Longevity'], 'url' => 'shop'],
-        ['title' => 'Performance', 'tags' => ['Performance', 'Metabolic Health'], 'url' => 'shop'],
-        ['title' => 'Cellular Repair', 'tags' => ['Repair & Regeneration'], 'url' => 'shop'],
-        ['title' => 'Immune Support', 'tags' => ['Immune Balance', 'Cellular Wellness'], 'url' => 'shop'],
-        ['title' => 'Vitality', 'tags' => ['Longevity', 'Cellular Vitality'], 'url' => 'shop'],
+        [
+            'title'       => 'GHK-Cu',
+            'description' => 'Copper peptide best known for supporting collagen production, skin rejuvenation, wound healing, and hair research.',
+            'tags'        => ['Collagen', 'Skin Rejuvenation'],
+            'url'         => 'shop',
+            'product_image' => 'ghk-ch.png',
+        ],
+        [
+            'title'       => 'Ipamorelin',
+            'description' => 'Growth hormone secretagogue that selectively stimulates natural growth hormone release with minimal effect on cortisol or prolactin.',
+            'tags'        => ['GH Secretagogue', 'Recovery'],
+            'url'         => 'shop',
+            'product_image' => 'lpamorelin.png',
+        ],
+        [
+            'title'       => 'Tesamorelin',
+            'description' => 'GHRH analogue primarily researched for reducing visceral fat and increasing natural growth hormone secretion.',
+            'tags'        => ['GHRH Analogue', 'Metabolic Health'],
+            'url'         => 'shop',
+            'product_image' => 'tesamorelin.png',
+        ],
+        [
+            'title'       => 'CJC-1295',
+            'description' => 'Long-acting growth hormone-releasing hormone (GHRH) analogue designed to increase GH and IGF-1 levels.',
+            'tags'        => ['GHRH Analogue', 'IGF-1'],
+            'url'         => 'shop',
+            'product_image' => 'cjc-1295.png',
+        ],
+        [
+            'title'       => 'CJC-1295 with DAC',
+            'description' => 'Extended-release version of CJC-1295 that remains active much longer due to the Drug Affinity Complex (DAC).',
+            'tags'        => ['Extended Release', 'GH Research'],
+            'url'         => 'shop',
+            'product_image' => 'cjc-1295-dac.png',
+        ],
+        [
+            'title'       => 'MOTS-c',
+            'description' => 'Mitochondrial-derived peptide researched for improving metabolism, insulin sensitivity, exercise capacity, and healthy aging.',
+            'tags'        => ['Mitochondrial', 'Longevity'],
+            'url'         => 'shop',
+            'product_image' => 'mots-c.png',
+        ],
+        [
+            'title'       => 'GLP3-PP (30 mg)',
+            'description' => 'Proprietary GLP-based research peptide intended to investigate metabolic regulation and appetite-related pathways (the manufacturer does not publicly specify its exact sequence or composition).',
+            'tags'        => ['GLP Research', 'Metabolic Health'],
+            'url'         => 'shop',
+            'product_image' => 'glp3.png',
+        ],
     ];
 
     foreach ($items as $i => &$item) {
         $item['card_bg'] = $backgrounds[$i] ?? $backgrounds[0];
-        $item['product_image'] = 'product.png';
     }
 
     return $items;
