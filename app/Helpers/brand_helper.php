@@ -64,7 +64,7 @@ function cv_brand(): array
         'seo_keywords' => 'premium peptides, peptide therapy, longevity science, healthy aging, bioactive peptides, cellular health, precision wellness, regenerative wellness, wellness optimization, peptide research, science-backed wellness, collagen support, recovery protocols, metabolic health, longevity protocols',
         'personality' => ['Luxury', 'Editorial', 'Sophisticated', 'Clinical', 'Modern', 'Minimal', 'Natural', 'Confident'],
         'personality_note' => 'Never loud. Never salesy.',
-        'contact_email' => 'hello@cellavie.com',
+        'contact_email' => 'cellaviesupport@gmail.com',
         'legal_updated' => 'July 17, 2026',
     ];
 }

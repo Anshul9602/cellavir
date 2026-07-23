@@ -7,10 +7,16 @@
             <h2 class="cv-footer__cta-title">Curious but not quite ready to dive in?</h2>
             <p class="cv-footer__cta-lead">We’d love to connect.</p>
             <p class="cv-footer__cta-text">Email our team at <a href="mailto:<?= esc(cv_brand()['contact_email']) ?>"><?= esc(cv_brand()['contact_email']) ?></a> to explore how CellaVie works — and whether it’s the right fit for you.</p>
-            <form class="cv-footer__newsletter" action="newsletter" method="post">
+            <form class="cv-footer__newsletter" action="<?= site_url('newsletter') ?>" method="post">
                 <label class="cv-footer__newsletter-label" for="cv-footer-newsletter-email">Newsletter</label>
+                <?php if (session()->getFlashdata('newsletter_success')): ?>
+                <p class="cv-footer__newsletter-msg cv-footer__newsletter-msg--success"><?= esc(session()->getFlashdata('newsletter_success')) ?></p>
+                <?php endif; ?>
+                <?php if (session()->getFlashdata('newsletter_error')): ?>
+                <p class="cv-footer__newsletter-msg cv-footer__newsletter-msg--error"><?= esc(session()->getFlashdata('newsletter_error')) ?></p>
+                <?php endif; ?>
                 <div class="cv-footer__newsletter-row">
-                    <input id="cv-footer-newsletter-email" type="email" name="email" placeholder="Enter your email" required aria-label="Email">
+                    <input id="cv-footer-newsletter-email" type="email" name="email" placeholder="Enter your email" required aria-label="Email" value="<?= esc(old('email')) ?>">
                     <button type="submit">Subscribe</button>
                 </div>
             </form>

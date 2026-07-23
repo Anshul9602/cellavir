@@ -70,13 +70,39 @@ class Portal extends BaseController
             'name'    => 'required|min_length[2]|max_length[120]',
             'email'   => 'required|valid_email|max_length[190]',
             'subject' => 'permit_empty|max_length[190]',
-            'message' => 'required|min_length[10]|max_length[5000]',
+            'message' => 'required|max_length[5000]',
         ];
 
-        if (! $this->validate($rules)) {
+        $messages = [
+            'name' => [
+                'required'   => 'Please enter your full name.',
+                'min_length' => 'Your name must be at least 2 characters.',
+            ],
+            'email' => [
+                'required'    => 'Please enter your email address.',
+                'valid_email' => 'Please enter a valid email address.',
+            ],
+            'message' => [
+                'required' => 'Please enter your message.',
+            ],
+        ];
+
+        if (! $this->validate($rules, $messages)) {
+            $errors  = $this->validator->getErrors();
+            $errorMsg = $errors['message'] ?? $errors['email'] ?? $errors['name'] ?? reset($errors) ?: 'Please fill in all required fields correctly.';
+
             return redirect()->to(site_url('contact') . '#contact-form')
                 ->withInput()
-                ->with('contact_error', 'Please fill in all required fields correctly.');
+                ->with('contact_error', $errorMsg);
+        }
+
+        $wordCount = str_word_count($message);
+        if ($wordCount < 25) {
+            $wordLabel = $wordCount === 1 ? 'word' : 'words';
+
+            return redirect()->to(site_url('contact') . '#contact-form')
+                ->withInput()
+                ->with('contact_error', "Your message must be at least 25 words. You entered {$wordCount} {$wordLabel}.");
         }
 
         if ($subject === '') {
@@ -84,7 +110,7 @@ class Portal extends BaseController
         }
 
         $brand      = cv_brand();
-        $storeEmail = (string) (env('email.recipients') ?: ($brand['contact_email'] ?? 'hello@cellavie.com'));
+        $storeEmail = (string) (env('email.recipients') ?: ($brand['contact_email'] ?? 'cellaviesupport@gmail.com'));
         $fromEmail  = (string) (env('email.fromEmail') ?: $storeEmail);
         $fromName   = (string) (env('email.fromName') ?: ($brand['short_name'] ?? 'CellaVie'));
 
@@ -156,7 +182,53 @@ class Portal extends BaseController
             return redirect()->back()->with('newsletter_error', 'Please enter a valid email address.');
         }
 
-        return redirect()->back()->with('newsletter_success', 'Thank you for subscribing.');
+        $brand      = cv_brand();
+        $storeEmail = (string) (env('email.recipients') ?: ($brand['contact_email'] ?? 'cellaviesupport@gmail.com'));
+        $fromEmail  = (string) (env('email.fromEmail') ?: $storeEmail);
+        $fromName   = (string) (env('email.fromName') ?: ($brand['short_name'] ?? 'CellaVie'));
+        $safeEmail  = esc($email);
+
+        $storeBody = <<<HTML
+            <h2>New newsletter subscription</h2>
+            <p><strong>Email:</strong> {$safeEmail}</p>
+            <p>This subscriber joined the CellaVie newsletter from the website footer.</p>
+        HTML;
+
+        $subscriberBody = <<<HTML
+            <p>Hi,</p>
+            <p>Thank you for subscribing to the {$fromName} newsletter.</p>
+            <p>You'll receive updates on science-backed peptide protocols, wellness insights, and CellaVie news.</p>
+            <p>— {$fromName}</p>
+        HTML;
+
+        $emailService = \Config\Services::email();
+
+        $emailService->clear();
+        $emailService->setFrom($fromEmail, $fromName);
+        $emailService->setTo($storeEmail);
+        $emailService->setReplyTo($email);
+        $emailService->setSubject('New newsletter subscription — ' . $fromName);
+        $emailService->setMessage($storeBody);
+        $storeSent = $emailService->send(false);
+
+        $emailService->clear();
+        $emailService->setFrom($fromEmail, $fromName);
+        $emailService->setTo($email);
+        $emailService->setSubject('You are subscribed — ' . $fromName);
+        $emailService->setMessage($subscriberBody);
+        $subscriberSent = $emailService->send(false);
+
+        if (! $storeSent || ! $subscriberSent) {
+            log_message('error', 'Newsletter mail failed. Store: {store} Subscriber: {subscriber} Debug: {debug}', [
+                'store'      => $storeSent ? 'ok' : 'fail',
+                'subscriber' => $subscriberSent ? 'ok' : 'fail',
+                'debug'      => $emailService->printDebugger(['headers', 'subject', 'body']),
+            ]);
+
+            return redirect()->back()->with('newsletter_error', 'Sorry, we could not complete your subscription right now. Please try again.');
+        }
+
+        return redirect()->back()->with('newsletter_success', 'Thank you for subscribing. A confirmation email has been sent to you.');
     }
 
     public function shop(?string $category = null)

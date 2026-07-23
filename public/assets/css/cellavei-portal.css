@@ -1313,6 +1313,13 @@ body.protocol-home-page .protocol-btn.protocol-btn--secondary:hover {
     transform: translateY(-1px);
 }
 
+.cv-contact-field__hint {
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    color: rgba(43, 43, 43, 0.55);
+}
+
 .protocol-contact-form__submit {
     width: 100%;
     margin-top: 8px;
@@ -3791,6 +3798,21 @@ body.protocol-contact-page .protocol-page-header {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.85);
+}
+
+.cv-footer__newsletter-msg {
+    margin: 0 0 12px;
+    font-family: var(--protocol-font);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.cv-footer__newsletter-msg--success {
+    color: #d4edda;
+}
+
+.cv-footer__newsletter-msg--error {
+    color: #f8d7da;
 }
 
 .cv-footer__newsletter-row {

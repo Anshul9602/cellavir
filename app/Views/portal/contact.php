@@ -8,7 +8,7 @@ $enquiries = [
         'description' => 'For licensed clinics and healthcare organizations seeking information about CellaVie peptide protocols, wellness programs, or professional partnerships.',
         'list_heading' => 'We can assist with:',
         'list' => ['Protocol information', 'Wellness program enquiries', 'Professional guidance', 'Clinic partnerships', 'General support'],
-        'email' => 'clinics@cellavie.com',
+        'email' => 'cellaviesupport@gmail.com',
         'subject' => 'Clinic Enquiry',
         'cta' => 'Select clinic enquiry',
         'active' => true,
@@ -20,7 +20,7 @@ $enquiries = [
         'description' => 'Our team supports researchers, clinicians, and wellness professionals exploring the science behind peptide protocols and longevity.',
         'list_heading' => 'Topics include:',
         'list' => ['Peptide science and mechanisms', 'Clinical references', 'Evidence summaries', 'Protocol research', 'Scientific collaboration'],
-        'email' => 'research@cellavie.com',
+        'email' => 'cellaviesupport@gmail.com',
         'subject' => 'Research Enquiry',
         'cta' => 'Select research enquiry',
         'active' => false,
@@ -32,7 +32,7 @@ $enquiries = [
         'description' => 'CellaVie welcomes collaborations with clinics, wellness brands, distributors, and organizations who share our commitment to science-backed longevity.',
         'list_heading' => 'Partnership opportunities include:',
         'list' => ['Clinic partnerships', 'Brand collaborations', 'Distribution partnerships', 'Wellness program integrations', 'Strategic partnerships'],
-        'email' => 'partnerships@cellavie.com',
+        'email' => 'cellaviesupport@gmail.com',
         'subject' => 'Partnership Enquiry',
         'cta' => 'Select partnership enquiry',
         'active' => false,
@@ -115,8 +115,8 @@ $contactVideo = pp_video('contactus.MP4');
                     </div>
 
                     <div class="protocol-contact-form__field cv-contact-field protocol-animate protocol-animate--slide-up protocol-animate--delay-600">
-                        <label class="protocol-contact-form__label" for="contact-message">Message</label>
-                        <textarea id="contact-message" class="protocol-contact-form__input protocol-contact-form__textarea" name="message" rows="8" placeholder="Message" required><?= esc(old('message')) ?></textarea>
+                        <label class="protocol-contact-form__label" for="contact-message">Message <span class="cv-contact-field__hint">(min: 25 words)</span></label>
+                        <textarea id="contact-message" class="protocol-contact-form__input protocol-contact-form__textarea" name="message" rows="8" placeholder="Message (min: 25 words)" required data-min-words="25"><?= esc(old('message')) ?></textarea>
                     </div>
 
                     <button type="submit" class="protocol-btn protocol-contact-form__submit protocol-animate protocol-animate--slide-up protocol-animate--delay-600">

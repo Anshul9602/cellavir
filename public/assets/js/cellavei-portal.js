@@ -48,6 +48,26 @@
         if (contactError) {
             contactError.focus();
         }
+
+        var messageField = contactForm.querySelector('#contact-message');
+        if (messageField) {
+            contactForm.addEventListener('submit', function (e) {
+                var text = messageField.value.trim();
+                var words = text === '' ? 0 : text.split(/\s+/).filter(Boolean).length;
+                if (words < 25) {
+                    e.preventDefault();
+                    var wordLabel = words === 1 ? 'word' : 'words';
+                    messageField.setCustomValidity('Your message must be at least 25 words. You entered ' + words + ' ' + wordLabel + '.');
+                    messageField.reportValidity();
+                    return;
+                }
+                messageField.setCustomValidity('');
+            });
+
+            messageField.addEventListener('input', function () {
+                messageField.setCustomValidity('');
+            });
+        }
     }
 
     document.querySelectorAll('.protocol-faq__accordion').forEach(function (accordion) {
